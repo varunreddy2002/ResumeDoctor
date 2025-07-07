@@ -1,0 +1,65 @@
+/* frontend/src/components/UploadResume.css */
+
+.upload-container {
+  max-width: 500px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.upload-title {
+  font-size: 2rem;
+  color: #4e54c8;
+  margin-bottom: 0.5rem;
+}
+
+.upload-subtitle {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.file-input {
+  margin-bottom: 1rem;
+  width: 100%;
+  padding: 10px;
+  border: 2px dashed #4e54c8;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #f9f9ff;
+  transition: background-color 0.2s;
+}
+
+.file-input:hover {
+  background-color: #f0f0ff;
+}
+
+.upload-btn {
+  background: linear-gradient(to right, #4e54c8, #8f94fb);
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.upload-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.upload-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.upload-status {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #444;
+}
