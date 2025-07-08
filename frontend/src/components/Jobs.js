@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Header from './Header';
+import { auth } from '../firebase'; // so you can access auth.currentUser
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
   const [search, setSearch] = useState("");
+
 
   const fetchJobs = async () => {
     try {
@@ -21,9 +24,15 @@ const Jobs = () => {
   const handleSearch = () => {
     fetchJobs();
   };
-
+ const [darkMode, setDarkMode] = useState(true);
+const toggleDarkMode = () => setDarkMode(!darkMode);
   return (
+      <div className={darkMode ? 'dark' : ''}>
+      <div className="min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white font-sans transition-colors">
+      <Header user={auth.currentUser} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+
     <div className="p-6 max-w-5xl mx-auto text-white dark:text-white">
+        
 <h2 className="text-2xl font-bold mb-4 flex items-center gap-2 text-black dark:text-white">
   <span role="img" aria-label="search"></span> Search Jobs
 </h2>
@@ -74,6 +83,8 @@ const Jobs = () => {
   ))}
 </div>
 
+    </div>
+    </div>
     </div>
   );
 };
