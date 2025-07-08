@@ -11,7 +11,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+from pathlib import Path
+UPLOAD_DIR = Path("uploaded_resumes")
+UPLOAD_DIR.mkdir(exist_ok=True)
 @app.get("/")
 def read_root():
     return {"message": "✅ FastAPI is running"}
@@ -19,5 +21,11 @@ def read_root():
 @app.post("/api/upload-resume")
 async def upload_resume(file: UploadFile = File(...)):
     contents = await file.read()
-    print(f"✅ Received file: {file.filename} ({len(contents)} bytes)")
-    return {"filename": file.filename, "message": "Resume uploaded successfully"}
+
+    # ✅ Save to disk
+    save_path = UPLOAD_DIR / file.filename
+    with open(save_path, "wb") as f:
+        f.write(contents)
+
+    print(f"✅ Saved: {save_path.resolve()}")
+    return {"filename": file.filename, "message": "Resume saved successfully"}
