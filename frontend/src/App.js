@@ -3,6 +3,7 @@ import Header from './components/Header';
 import StepsIndicator from './components/StepsIndicator';
 import FeatureCards from './components/FeatureCards';
 import JobInputForm from './components/JobInputForm';
+import ResumeUpload from './components/ResumeUpload';
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -20,6 +21,10 @@ function App() {
           </p>
 
           <FeatureCards />
+          <div className="p-6 max-w-3xl mx-auto">
+  <ResumeUpload />
+</div>
+
           <JobInputForm />
 
           <div className="mt-6 text-center">
