@@ -32,20 +32,7 @@ const JobInputForm = () => {
         </div>
       ) : (
         <div>
-          <label className="block text-sm mt-2 mb-1">Job Title</label>
-          <input
-            type="text"
-            placeholder="e.g., Senior Frontend Developer"
-            className="w-full p-2 rounded border dark:bg-gray-800 dark:border-gray-600 mb-2"
-          />
-
-          <label className="block text-sm mb-1">Company</label>
-          <input
-            type="text"
-            placeholder="e.g., TechCorp Inc."
-            className="w-full p-2 rounded border dark:bg-gray-800 dark:border-gray-600 mb-2"
-          />
-
+    
           <label className="block text-sm mb-1">Job Description</label>
           <textarea
             rows="5"
