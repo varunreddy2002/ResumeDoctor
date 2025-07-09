@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
+
 const Header = ({ user, darkMode, toggleDarkMode }) => {
   const [showMenu, setShowMenu] = useState(false);
   const firstName = user.displayName?.split(' ')[0] || 'User';
@@ -21,6 +22,11 @@ const Header = ({ user, darkMode, toggleDarkMode }) => {
 
       {/* Right - Actions */}
       <div className="flex items-center gap-3 sm:gap-4">
+        <nav className="flex items-center gap-4 text-sm">
+  <Link to="/" className="hover:underline">Home</Link>
+  <Link to="/dashboard" className="hover:underline">Dashboard</Link>
+</nav>
+
         {/* Jobs Button */}
         <Link
           to="/jobs"
