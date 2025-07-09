@@ -1,31 +1,66 @@
-from fastapi import FastAPI, File, UploadFile
-from fastapi.middleware.cors import CORSMiddleware
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+from werkzeug.utils import secure_filename
+import fitz  # PyMuPDF
+import os
+from dotenv import load_dotenv
+from gemini_helper import get_resume_analysis
+import google.generativeai as genai
 
-app = FastAPI()
+# Load API key from .env
+load_dotenv()
+api_key = os.getenv("GEMINI_API_KEY")
+model = genai.GenerativeModel("gemini-1.5-flash")
+# Configure Gemini
+genai.configure(api_key=api_key)
 
-# ✅ Correct CORS middleware config
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # your frontend
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-from pathlib import Path
-UPLOAD_DIR = Path("uploaded_resumes")
-UPLOAD_DIR.mkdir(exist_ok=True)
-@app.get("/")
-def read_root():
-    return {"message": "✅ FastAPI is running"}
 
-@app.post("/api/upload-resume")
-async def upload_resume(file: UploadFile = File(...)):
-    contents = await file.read()
 
-    # ✅ Save to disk
-    save_path = UPLOAD_DIR / file.filename
-    with open(save_path, "wb") as f:
-        f.write(contents)
+app = Flask(__name__)
+CORS(app)
+@app.route("/")
+def home():
+    return "ResumeDoctor Gemini API is running."
 
-    print(f"✅ Saved: {save_path.resolve()}")
-    return {"filename": file.filename, "message": "Resume saved successfully"}
+UPLOAD_FOLDER = 'temp'
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
+def extract_text_from_pdf(path):
+    doc = fitz.open(path)
+    return "\n".join([page.get_text() for page in doc])
+@app.route("/analyze_resume_gemini", methods=["POST"])
+def analyze_resume_gemini():
+    resume_file = request.files.get("resume")
+    job_description = request.form.get("jd")
+
+    if not resume_file or not job_description:
+        return jsonify({"error": "Missing resume or job description"}), 400
+
+    # Read PDF using PyMuPDF
+    text = ""
+    import fitz
+    with fitz.open(stream=resume_file.read(), filetype="pdf") as doc:
+        for page in doc:
+            text += page.get_text()
+
+    prompt = f"""
+    You are a resume analyzer. Compare the resume below with the job description and give:
+    1. Skills Match %
+    2. Missing Skills
+    3. Top Match Highlights
+    4. Final Verdict (Short text)
+
+    Resume:
+    {text}
+
+    Job Description:
+    {job_description}
+    """
+
+    try:
+        response = model.generate_content(prompt)
+        return jsonify({"analysis": response.text})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+if __name__ == "__main__":
+    app.run(debug=True)

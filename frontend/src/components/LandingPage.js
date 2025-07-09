@@ -3,6 +3,7 @@ import { auth, provider } from '../firebase';
 import { signInWithPopup, createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import './LandingPage.css';
+import { signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -33,14 +34,46 @@ const LandingPage = () => {
       });
   };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    if (isSignup) {
-      handleSignup(email, password);
-    } else {
-      // Implement login logic here if needed
-    }
-  };
+ 
+const handleFormSubmit = (e) => {
+  e.preventDefault();
+  if (isSignup) {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(async (userCredential) => {
+        const user = userCredential.user;
+
+        // ✅ Set the displayName just like Google
+        await updateProfile(user, {
+          displayName: name
+        });
+
+        // ✅ Save user info to localStorage
+        localStorage.setItem("userEmail", user.email);
+        localStorage.setItem("userName", name);
+
+        navigate("/home");
+      })
+      .catch((error) => {
+        alert("Signup failed: " + error.message);
+      });
+  } else {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+
+        // ✅ Use displayName if available, fallback to "User"
+        localStorage.setItem("userEmail", user.email);
+        localStorage.setItem("userName", user.displayName || "User");
+
+        navigate("/home");
+      })
+      .catch((error) => {
+        alert("Login failed: " + error.message);
+      });
+  }
+};
+
+
 
   const backgroundStyle = {
     background: `url(${process.env.PUBLIC_URL}/images/resume-bg.jpg) no-repeat center center/cover`,
