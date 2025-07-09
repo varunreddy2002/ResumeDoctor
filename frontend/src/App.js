@@ -18,6 +18,8 @@ function App() {
         <Route path="/upload" element={<ResumeUpload />} />
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/steps" element={<StepsIndicator />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+
         {/* Add more routes as needed */}
       </Routes>
     </div>

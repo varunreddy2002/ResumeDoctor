@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "resumedoctor",
+  "private_key_id": "a4445c93e209088be2417d7b1c20869edb2e44c7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDZpWoD0coJ0CZK\nF0v9gLanLwWMIo3XtcRZq3K1Fuo8STIpYck2DQfYzlOyHl0jT2LJG4VBqhqGpaGP\nzo/voGqH3jZieb4l0qhf2msXSvvmz63CBFNskMcMcWjzHiKMBbqKTTCB9HyjsCDJ\nMeciZhGQaQlojA6Ok3DRc9WIovWdYW7zKKMY4V+U+yw1Tu8bV44oHDILy76mr1Uh\nrH8jk5ycV6mgp+xQb9La9dN0aNh5UvWx+FCrGFKPiio3qUpFV1a34WZ8DtuaB3q4\n4goQ2lIgGDzbv6kFRKAoe+v1HP0zMUko8LWa1It7bcvUjie9Juanc80nzSWQ0FbH\nCk1Oil03AgMBAAECggEAGNSzbK4ho874n1lbFRf7PsWxl1RV5HdbaHOUCa8MmEYt\nj+UVJLKF46leiSLHs4CaH6GhKWWz0wrQjOyfJVKi9M9YWxHSrNQE27K6pxSp+qJV\nC56cufUmkHfb5mjYvirlJmQ6FYmEMtSkWO/1k8obVON27FOWUZPmui7B/O3CoerG\n9l3D2ib0mWojbhLBAW99XUQ0WDtiw1k+cTYjJ6Op4aOM+EEphfddbrleSiJbfGQX\niTaAUzTzVvJsG1eNT0wuUkcSzs4JaUn1WAvzKkv+/rsHbJYLtuCI2uB65RKLToBB\n8qmAqZi1DUMYgI3dAC8pP6Vdt1QqRIZUjz2Mm+uFEQKBgQDsNThGnmkd16nWb8KW\nrA5iMBD3baqnV7wXqSfLvcS2Lu4gc5SPaMrkVh8YJDd8+OHteD2oc+s+WliicbDD\nkBxjwdZl1g9MqmOt9c2Hq3bJYu+NZqVXBtnJEFtFyPg0g26trQrx26FP7mxiJrMH\nomWtRdz6twsb/+4Qjt4lK/FlDwKBgQDr4gkS5y7buxnolBFKSazYrOfOPQngrFFe\nUvBm6rpFU2BW0XMITCv8/6iT9MneMrNjddDthh7IaFqLyYsUA8GWVKoJYiSqUMuq\ndH465eE2isJgPjymqvhSeaB390yFiyygyy2V5frAXMI3iC5ohFca0B+pBcRp45VN\nu3kG6GwVWQKBgC7TXhSh0rTXzBN2lFzKPw+396UVWH9UJTWLkxgQxq5XH13Pi+Pi\nIlahvAhNJbLgo+kvrQl38Wqq/mc1opUiPH6KLraBeQb5wEj8MYJzu1ixBExDzQMz\nmHkDhRSQgqPmakqDw2eu4ou1+EZ85YDd8Mooz2XkY49pbQhbSi6UR4aBAoGAMuzw\n8pDQ0AWb+VeGSBiR5ZGm1iLdcBEj3A5h8oY4wuDWSsgbYq43TP7RIWhW8M7XZeC4\nw58SJEhLTCSuDxskf1U2BKKYseCRp/JQklyw+7qHbonhREZjKEMz/tJ4RdifQPO8\nmsE1GrSsBZs0EcKIn7RRMYeaORY2VLrlzTT+qLkCgYEAle1961yT8M+0Zdq1g7P8\n6sBxbMZ+4O1EBppk3kEQzio+Xmrphafq29+eUCplDfovvCIEW/evci34LaRnrQBy\nzHUlxxPOieMCUoNxAaJB3/qnUylfDviYculmDvEhEtKhrwyfsKZCaWiJsnZI7G5u\noI2ztk5ewRsMhraLfM/2t+Y=\n-----END PRIVATE KEY-----\n",
+  "client_email": "resumedoc@resumedoctor.iam.gserviceaccount.com",
+  "client_id": "113566971587378666863",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/resumedoc%40resumedoctor.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

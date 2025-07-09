@@ -3,12 +3,13 @@ import { auth } from '../firebase';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaMoon, FaSun } from 'react-icons/fa';
-
+ 
+ 
 const Header = ({ user, darkMode, toggleDarkMode }) => {
   const [showMenu, setShowMenu] = useState(false);
   const firstName = user.displayName?.split(' ')[0] || 'User';
   const location = useLocation();
-
+ 
   return (
     <header className="p-4 border-b dark:border-gray-700 bg-white dark:bg-gray-900 flex justify-between items-center shadow-sm">
       {/* Left - Logo */}
@@ -18,9 +19,14 @@ const Header = ({ user, darkMode, toggleDarkMode }) => {
       >
         Resume Doctor
       </Link>
-
+ 
       {/* Right - Actions */}
       <div className="flex items-center gap-3 sm:gap-4">
+        <nav className="flex items-center gap-4 text-sm">
+  <Link to="/" className="hover:underline">Home</Link>
+  <Link to="/dashboard" className="hover:underline">Dashboard</Link>
+</nav>
+ 
         {/* Jobs Button */}
         <Link
           to="/jobs"
@@ -32,7 +38,7 @@ const Header = ({ user, darkMode, toggleDarkMode }) => {
         >
           Jobs
         </Link>
-
+ 
         {/* Theme Toggle */}
         <button
           onClick={toggleDarkMode}
@@ -40,7 +46,7 @@ const Header = ({ user, darkMode, toggleDarkMode }) => {
         >
           {darkMode ? <FaSun /> : <FaMoon />}
         </button>
-
+ 
         {/* Profile Dropdown */}
         <div className="relative">
           <button
@@ -56,7 +62,7 @@ const Header = ({ user, darkMode, toggleDarkMode }) => {
             )}
             <span className="text-sm">{firstName}</span>
           </button>
-
+ 
           {showMenu && (
             <div className="absolute right-0 mt-2 bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 rounded-md w-36 z-50">
               <button
@@ -72,5 +78,5 @@ const Header = ({ user, darkMode, toggleDarkMode }) => {
     </header>
   );
 };
-
+ 
 export default Header;

@@ -1,20 +1,19 @@
-# Web API
-fastapi
-uvicorn[standard]
-gunicorn
+# Web framework
+fastapi==0.116.0
+uvicorn[standard]==0.35.0
 
-# File uploads & env
-python-multipart
-python-dotenv
+# Multipart form parsing & env vars
+python-multipart==0.0.20
+python-dotenv==1.1.1
 
-# Resume parsing
-pdfplumber
-docx2txt
+# PDF/DOCX parsing
+PyMuPDF==1.26.3
+docx2txt==0.9
 
-# Google Cloud clients
-google-cloud-storage        # for uploading/downloading resumes
-google-cloud-vision         # OCR on PDFs/images (if you switch to Vision API)
-google-cloud-language       # entity extraction, key-phrase detection
-google-cloud-firestore      # if you want to store results in Firestore
-google-auth                 # auth helpers
+# Google Cloud & Firebase (firebase-admin needs storage>=1.37.1)
+google-cloud-storage>=1.37.1
+firebase-admin==6.3.0
+google-auth==2.40.3
 
+# Google Generative AI client
+google-generativeai==0.8.5

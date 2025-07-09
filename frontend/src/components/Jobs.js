@@ -11,7 +11,7 @@ const Jobs = () => {
   const fetchJobs = async () => {
     try {
       const response = await axios.get(`https://remotive.com/api/remote-jobs?search=${search}`);
-      setJobs((response.data.jobs || []).slice(0, 10));
+      setJobs(response.data.jobs || []);
     } catch (error) {
       console.error("Failed to fetch jobs", error);
     }
@@ -29,8 +29,8 @@ const toggleDarkMode = () => setDarkMode(!darkMode);
   return (
       <div className={darkMode ? 'dark' : ''}>
       <div className="min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white font-sans transition-colors">
-      <Header user={auth.currentUser} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-
+    {/*   <Header user={auth.currentUser} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+ */}
     <div className="p-6 max-w-5xl mx-auto text-white dark:text-white">
         
 <h2 className="text-2xl font-bold mb-4 flex items-center gap-2 text-black dark:text-white">
