@@ -1,0 +1,14 @@
+# ignore python caches and venv
+__pycache__/
+*.pyc
+venv/
+.env
+
+# ignore local data & frontend code
+Data/
+frontend/
+node_modules/
+
+# ignore Git
+.git
+.gitignore

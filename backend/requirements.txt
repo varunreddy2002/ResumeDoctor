@@ -1,0 +1,20 @@
+# Web API
+fastapi
+uvicorn[standard]
+gunicorn
+
+# File uploads & env
+python-multipart
+python-dotenv
+
+# Resume parsing
+pdfplumber
+docx2txt
+
+# Google Cloud clients
+google-cloud-storage        # for uploading/downloading resumes
+google-cloud-vision         # OCR on PDFs/images (if you switch to Vision API)
+google-cloud-language       # entity extraction, key-phrase detection
+google-cloud-firestore      # if you want to store results in Firestore
+google-auth                 # auth helpers
+
